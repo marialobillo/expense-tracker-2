@@ -18,7 +18,7 @@ Expense Tracker is an application the allows you the manage you expenses. The ma
 
 
 
-
+## Details
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
