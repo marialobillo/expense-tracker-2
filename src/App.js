@@ -10,7 +10,6 @@ class App extends Component{
     expenses: []
   }
 
-  // when the component is mounted
   componentDidMount(){
     const expenseslocalS = localStorage.getItem('expenses');
     if(expenseslocalS){
@@ -38,11 +37,9 @@ class App extends Component{
   }
 
   createNewExpense = data => {
-    console.log(data);
-
-    // copy the current state
+  
     const expenses = [...this.state.expenses, data];
-    // update the state and add the new expense 
+
     this.setState({
       expenses
     });

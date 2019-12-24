@@ -24,13 +24,12 @@ class NewExpense extends Component{
     handleSubmit = e => {
         e.preventDefault();
 
-        // get the state values
         const {type, name, date, amount} = this.state.expense;
 
         if(type === '' || name === '' || date === '' || amount === ''){
             return;
         }
-        // generate an object
+    
         const newExpense = {...this.state.expense};
         newExpense.id = Date.now();
 

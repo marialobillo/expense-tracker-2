@@ -4,7 +4,6 @@ import Expense from './Expense';
 
 const ExpenseList = ({ expenses, deleteExpense }) => {
 
-    // print message when there is not expenses
     const message = expenses.length === 0 ? 'No expense items yet! Please add one up top...': '';
 
     return (
