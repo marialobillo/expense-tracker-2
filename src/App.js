@@ -37,7 +37,6 @@ class App extends Component{
   }
 
   createNewExpense = data => {
-  
     const expenses = [...this.state.expenses, data];
 
     this.setState({

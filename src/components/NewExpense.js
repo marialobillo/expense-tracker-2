@@ -11,8 +11,6 @@ class NewExpense extends Component{
     }
 
     handleChange = e => {
-        // console.log(e.target.name + ': ' e.target.value);
-
         this.setState({
             expense: {
                 ...this.state.expense, 
@@ -33,9 +31,8 @@ class NewExpense extends Component{
         const newExpense = {...this.state.expense};
         newExpense.id = Date.now();
 
-        // here the data
         this.props.createNewExpense(newExpense);
-        // reset the form 
+        
         this.setState({
             expense: {
                 type: 'Choose one...',
@@ -43,7 +40,7 @@ class NewExpense extends Component{
                 date: '',
                 amount: 0,
             }
-        })
+        });
     }
 
     render(){
