@@ -1,3 +1,24 @@
+# Expense Tracker (React)
+
+_Expense Tracker using React library._
+
+View like on Heroku  <a href="https://mysterious-waters-00541.herokuapp.com/" target="_blank">here</a>.
+
+<br>
+
+<img src="exp-demo.png" width="500">
+
+## Summary
+
+To Do App is a single page application (SPA) that allows you to manage our tasks. The main objective of this project is to serve as a learning tool and familiarize myself with the Javascript programming language, take into account the functions offered by the browser and know the structure of a web application.
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
