@@ -1,117 +1,73 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class NewExpense extends Component{
-    state = {
-        expense: {
-            type: '',
-            name: '',
-            date: '',
-            amount: 0,
-        }
-    }
+function NewExpense (props){
+    return (
+        <div className="">
+            <form onSubmit={props.handleSubmit}>
 
-    handleChange = e => {
-        this.setState({
-            expense: {
-                ...this.state.expense, 
-                [e.target.name] : e.target.value
-            }
-        });
-    }
+                <div className="form-group row">
+                    <span>Date:</span>
+                    <input 
+                        className="form-control" 
+                        type="date" 
+                        name="date" 
+                        onChange={props.handleChange}
+                        value={props.expense.date}
+                    />
+                </div>
+                
+                <div className="form-group row">
+                    <span>Description:</span>
+                    <input 
+                        className="form-control"
+                        placeholder="Expense Name" 
+                        type="text" 
+                        name="name"
+                        onChange={props.handleChange}
+                        value={props.expense.name}    
+                    />
+                </div>
 
-    handleSubmit = e => {
-        e.preventDefault();
-
-        const {type, name, date, amount} = this.state.expense;
-
-        if(type === '' || name === '' || date === '' || amount === ''){
-            return;
-        }
-    
-        const newExpense = {...this.state.expense};
-        newExpense.id = Date.now();
-
-        this.props.createNewExpense(newExpense);
-        
-        this.setState({
-            expense: {
-                type: 'Choose one...',
-                name: '',
-                date: '',
-                amount: 0,
-            }
-        });
-    }
-
-    render(){
-        return (
-            <div className="">
-                <form onSubmit={this.handleSubmit}>
-
-                    <div className="form-group row">
-                        <span>Date:</span>
-                        <input 
-                            className="form-control" 
-                            type="date" 
-                            name="date" 
-                            onChange={this.handleChange}
-                            value={this.state.expense.date}
-                        />
-                    </div>
-                    
-                    <div className="form-group row">
-                        <span>Description:</span>
-                        <input 
-                            className="form-control"
-                            placeholder="Expense Name" 
-                            type="text" 
-                            name="name"
-                            onChange={this.handleChange}
-                            value={this.state.expense.name}    
-                        />
-                    </div>
-
+               
+                <div className="form-group row">
+                    <span>Amount:</span>
+                    <input 
+                        className="form-control" 
+                        type="text" 
+                        placeholder="Expense Amount"
+                        name="amount" 
+                        onChange={props.handleChange}  
+                        value={props.expense.amount}  
+                    />
+                </div>
+                <div className="form-group row">
                    
-                    <div className="form-group row">
-                        <span>Amount:</span>
-                        <input 
-                            className="form-control" 
-                            type="text" 
-                            placeholder="Expense Amount"
-                            name="amount" 
-                            onChange={this.handleChange}  
-                            value={this.state.expense.amount}  
-                        />
-                    </div>
-                    <div className="form-group row">
-                       
-                            <label>Type:</label>
-                        <select 
-                            className="form-control" 
-                            name="type"
-                            onChange={this.handleChange}
-                            value={this.state.expense.type}
-                            >
-                            <option value="chooseOne">Choose one...</option>
-                            <option value="card">Card</option>
-                            <option value="cash">Cash</option>
-                            <option value="cryptocoin">Cryptocoin</option>
-                            <option value="other">Other</option>
-                        </select>
+                        <label>Type:</label>
+                    <select 
+                        className="form-control" 
+                        name="type"
+                        onChange={props.handleChange}
+                        value={props.expense.type}
+                        >
+                        <option value="chooseOne">Choose one...</option>
+                        <option value="card">Card</option>
+                        <option value="cash">Cash</option>
+                        <option value="cryptocoin">Cryptocoin</option>
+                        <option value="other">Other</option>
+                    </select>
 
-                        
-                    </div>
-                    <div className="form-group row">
-                        <button 
-                            type="submit" 
-                            className="btn btn-block btn-success">
-                                Add Expense
-                        </button>
-                    </div>
-                </form>
-            </div>
-        );
-    }
+                    
+                </div>
+                <div className="form-group row">
+                    <button 
+                        type="submit" 
+                        className="btn btn-block btn-success">
+                            Add Expense
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
 }
 
 export default NewExpense;

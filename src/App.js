@@ -7,14 +7,20 @@ import ExpenseList from './components/ExpenseList';
 
 class App extends Component{
   state = {
-    expenses: []
+    expenses: [],
+    expense: {
+      type: '',
+      name: '',
+      date: '',
+      amount: 0,
+    }
   }
 
   componentDidMount(){
-    const expenseslocalS = localStorage.getItem('expenses');
-    if(expenseslocalS){
+    const savedExpenses = localStorage.getItem('expenses');
+    if(savedExpenses){
       this.setState({
-        expenses: JSON.parse(expenseslocalS)
+        expenses: JSON.parse(savedExpenses)
       });
     }
   }
@@ -44,6 +50,39 @@ class App extends Component{
     });
   }
 
+  handleChange = e => {
+    this.setState({
+        expense: {
+            ...this.state.expense, 
+            [e.target.name] : e.target.value
+        }
+    });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const {type, name, date, amount} = this.state.expense;
+
+    if(type === '' || name === '' || date === '' || amount === ''){
+        return;
+    }
+
+    const newExpense = {...this.state.expense};
+    newExpense.id = Date.now();
+
+    this.createNewExpense(newExpense);
+    
+    this.setState({
+        expense: {
+            type: 'Choose one...',
+            name: '',
+            date: '',
+            amount: 0,
+        }
+    });
+  }
+
   render(){
     return (
       <div className="">
@@ -52,7 +91,12 @@ class App extends Component{
 
         <div className="row">
           <div className="col-md-8 mx-auto">
-            <NewExpense createNewExpense={this.createNewExpense} />
+            <NewExpense
+              expense={this.state.expense} 
+              createNewExpense={this.createNewExpense} 
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}  
+            />
           </div>
         </div>
 
