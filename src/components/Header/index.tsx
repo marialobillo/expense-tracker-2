@@ -1,9 +1,15 @@
+import { HeaderContainer, HeaderContent, NewExpenseButton } from "./styles"
 
 
 const Header = () => {
   return (
     <div>
-      Header
+      <HeaderContainer>
+        <HeaderContent>
+          <h2>Expenses</h2>
+          <NewExpenseButton>New Expense</NewExpenseButton>
+        </HeaderContent>
+      </HeaderContainer>
     </div>
   )
 }
