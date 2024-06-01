@@ -1,40 +1,16 @@
-import { styled } from "styled-components";
+import { MagnifyingGlass } from "phosphor-react"
+import { SearchFormContainer } from "./styles"
 
+const SearchForm = () => {
+  return (
+    <SearchFormContainer>
+      <input type="text" placeholder="Search by expenses" />
+      <button type="submit">
+        <MagnifyingGlass size={22} />
+        Search
+      </button>
+    </SearchFormContainer>
+  )
+}
 
-
-export const SearchFormContainer = styled.form`
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-
-  input {
-    flex: 1;
-    border-radius: 0.25rem;
-    border: 0;
-    background-color: ${props => props.theme['gray-900']};
-    color: ${props => props.theme['gray-200']};
-    padding: 1rem;
-
-    &::placeholder {
-      color: ${props => props.theme['gray-500']};
-    }
-  }
-
-  button {
-    background-color: ${props => props.theme['green-700']};
-    color: ${props => props.theme['gray-900']};
-    padding: 1rem 2rem;
-    border: 0;
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: filter 0.2s;
-    cursor: pointer;
-
-    &:hover {
-      filter: brightness(0.9);
-      background-color: ${props => props.theme['yellow-800']};
-      transition: background-color 0.2s;
-    }
-  }
-`;
+export default SearchForm

@@ -5,6 +5,7 @@ export const ExpensesContainer = styled.section`
   max-width: 1120px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 
@@ -18,7 +19,7 @@ export const ExpensesTable = styled.table`
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   td {
     padding: 1rem 2rem;
