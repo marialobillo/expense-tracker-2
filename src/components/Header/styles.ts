@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import * as Dialog from "@radix-ui/react-dialog"
 
 export const HeaderContainer = styled.header`
   background-color: ${props => props.theme['gray-400']};
@@ -26,7 +27,7 @@ export const HeaderContent = styled.div`
   }
 `
 
-export const NewExpenseButton = styled.button`
+export const NewExpenseButton = styled(Dialog.Trigger)`
   background-color: ${props => props.theme['yellow-500']};
   color: ${props => props.theme['gray-900']};
 
