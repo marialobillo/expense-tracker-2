@@ -20,11 +20,11 @@ const NewExpenseModal = () => {
                   <input type="text" placeholder="category" />
 
                   <ExpenseType>
-                    <ExpenseTypeButton variant="income">
+                    <ExpenseTypeButton variant="income" value="income">
                       <ArrowCircleUp size={24} />
                       Income
                     </ExpenseTypeButton>
-                    <ExpenseTypeButton variant="outcome">
+                    <ExpenseTypeButton variant="outcome" value="outcome">
                       <ArrowCircleDown size={24} />
                       Outcome
                       </ExpenseTypeButton>
