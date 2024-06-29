@@ -1,6 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { Overlay, Content, CloseButton } from './styles';
-import { X } from "phosphor-react";
+import { Overlay, Content, CloseButton, ExpenseType, ExpenseTypeButton } from './styles';
+import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 
 const NewExpenseModal = () => {
     return (
@@ -18,6 +18,17 @@ const NewExpenseModal = () => {
                   <input type="text" placeholder="description" />
                   <input type="number" placeholder="amount" />
                   <input type="text" placeholder="category" />
+
+                  <ExpenseType>
+                    <ExpenseTypeButton variant="income">
+                      <ArrowCircleUp size={24} />
+                      Income
+                    </ExpenseTypeButton>
+                    <ExpenseTypeButton variant="outcome">
+                      <ArrowCircleDown size={24} />
+                      Outcome
+                      </ExpenseTypeButton>
+                  </ExpenseType>
 
                   <button type="submit">
                     Record
