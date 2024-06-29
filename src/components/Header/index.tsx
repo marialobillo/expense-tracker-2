@@ -1,5 +1,6 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { HeaderContainer, HeaderContent, NewExpenseButton } from "./styles";
+import NewExpenseModal from "../NewExpenseModal";
 
 const Header = () => {
     return (
@@ -11,15 +12,7 @@ const Header = () => {
                     <Dialog.Root>
                         <NewExpenseButton>New Expense</NewExpenseButton>
 
-                        <Dialog.Portal>
-                            <Dialog.Overlay />
-
-                            <Dialog.Content>
-                              <Dialog.Title>New Expense</Dialog.Title>
-                              
-                              <Dialog.Close />
-                            </Dialog.Content>
-                        </Dialog.Portal>
+                        <NewExpenseModal />
 
                     </Dialog.Root>
                 </HeaderContent>
